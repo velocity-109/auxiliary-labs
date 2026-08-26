@@ -47,7 +47,19 @@
             line-height: 1.6;
             color: var(--text-main);
             background-color: var(--bg-main);
+            background-image: radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.22), transparent 28rem), radial-gradient(circle at 85% 65%, rgba(236, 201, 75, 0.15), transparent 25rem), linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: auto, auto, 36px 36px, 36px 36px;
+            background-attachment: fixed;
             transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(ellipse at center, transparent 30%, rgba(2, 8, 23, 0.42) 100%);
         }
 
         header {
@@ -128,6 +140,30 @@
             color: #ffffff;
             text-align: center;
             padding: 4rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 34rem;
+            height: 34rem;
+            left: 50%;
+            top: 50%;
+            border: 2px solid rgba(125, 211, 252, 0.35);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 3rem rgba(125, 211, 252, 0.07), 0 0 0 8rem rgba(125, 211, 252, 0.045), 0 0 45px rgba(125, 211, 252, 0.28);
+            animation: ambient-pulse 5s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes ambient-pulse {
+            0%, 100% { opacity: 0.45; transform: translate(-50%, -50%) scale(0.96); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); }
         }
         .hero h1 {
             font-size: 2.5rem;
@@ -191,7 +227,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 AuxLabs.2bd.net. Managed by DNSExit.</p>
+        <p>&copy; 2026 AuxLabs, formally known as WCA, RAF/2RS, Waffle-Waffen, AuxOS. BluGlu is the sole owner of this site.</p>
     </footer>
 
     <script>
@@ -205,6 +241,7 @@
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
         });
+
     </script>
 </body>
 </html>

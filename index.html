@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auxiliarite Dev Beta 1</title>
+    <meta name="description" content="Download notes, resources, and executables from AuxLabs.">
+    <title>Downloads - Auxiliary Laboratories</title>
     <style>
         :root {
             --bg-main: #f8f9fa;
@@ -37,171 +38,62 @@
             --btn-hover: #7dd3fc;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-main);
             background-color: var(--bg-main);
+            background-image: radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.22), transparent 28rem), radial-gradient(circle at 85% 65%, rgba(236, 201, 75, 0.15), transparent 25rem), linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: auto, auto, 36px 36px, 36px 36px;
+            background-attachment: fixed;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-
-        header {
-            background-color: var(--header-bg);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            color: #ffffff;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-        }
-        .nav-links a {
-            color: #cbd5e0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-        .nav-links a:hover, .nav-links a.active-link {
-            color: #ffffff;
-        }
-
-        .theme-toggle-wrapper {
-            display: flex;
-            align-items: center;
-        }
-        .theme-toggle {
-            position: relative;
-            width: 54px;
-            height: 28px;
-            border-radius: 20px;
-            background-color: #334155;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 6px;
-        }
+        body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; background: radial-gradient(ellipse at center, transparent 30%, rgba(2, 8, 23, 0.42) 100%); }
+        header { background-color: var(--header-bg); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #ffffff; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
+        .nav-right { display: flex; align-items: center; gap: 2rem; }
+        .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+        .nav-links a { color: #cbd5e0; text-decoration: none; font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover, .nav-links a.active-link { color: #ffffff; }
+        .theme-toggle-wrapper { display: flex; align-items: center; }
+        .theme-toggle { position: relative; width: 54px; height: 28px; border-radius: 20px; background-color: #334155; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 6px; }
         .theme-toggle .icon { font-size: 12px; z-index: 1; }
-        .theme-toggle .thumb {
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background-color: #ffffff;
-            transition: transform 0.3s ease;
-        }
-        [data-theme="dark"] .theme-toggle .thumb {
-            transform: translateX(26px);
-            background-color: #38bdf8;
-        }
-
-        .hero {
-            background: var(--hero-bg);
-            color: #ffffff;
-            text-align: center;
-            padding: 4rem 1rem;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .hero p {
-            margin-bottom: 1.5rem;
-        }
-        .btn {
-            display: inline-block;
-            background-color: var(--btn-bg);
-            color: var(--btn-text);
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-        }
-        .btn:hover {
-            background-color: var(--btn-hover);
-            transform: translateY(-2px);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-        .container > h2 {
-            margin-bottom: 1rem;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .card {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            border: var(--card-border);
-        }
-        .card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--accent-blue);
-        }
-
-        footer {
-            background-color: var(--header-bg);
-            color: #a0aec0;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 5rem;
-            font-size: 0.9rem;
-        }
+        .theme-toggle .thumb { position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background-color: #ffffff; transition: transform 0.3s ease; }
+        [data-theme="dark"] .theme-toggle .thumb { transform: translateX(26px); background-color: #38bdf8; }
+        .hero { background: var(--hero-bg); color: #ffffff; text-align: center; padding: 4rem 1rem; position: relative; overflow: hidden; }
+        .hero::after { content: ""; position: absolute; width: 34rem; height: 34rem; left: 50%; top: 50%; border: 2px solid rgba(125, 211, 252, 0.35); border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 3rem rgba(125, 211, 252, 0.07), 0 0 0 8rem rgba(125, 211, 252, 0.045), 0 0 45px rgba(125, 211, 252, 0.28); animation: ambient-pulse 5s ease-in-out infinite; pointer-events: none; }
+        .hero h1, .hero p { position: relative; z-index: 1; }
+        @keyframes ambient-pulse { 0%, 100% { opacity: 0.45; transform: translate(-50%, -50%) scale(0.96); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); } }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .hero p { margin-bottom: 1.5rem; }
+        .container { max-width: 1100px; margin: 3rem auto; padding: 0 1.5rem; }
+        .container > h2 { margin-bottom: 1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .card { background: var(--bg-card); padding: 2rem; border-radius: 12px; box-shadow: var(--card-shadow); border: var(--card-border); }
+        .card h3 { margin-bottom: 0.5rem; color: var(--accent-blue); }
+        .card p { color: var(--text-muted); margin-bottom: 1.5rem; }
+        .download-link { display: inline-block; background-color: var(--btn-bg); color: var(--btn-text); padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background-color 0.2s ease, transform 0.2s ease; }
+        .download-link:hover { background-color: var(--btn-hover); transform: translateY(-2px); }
+        .file-type { display: block; color: var(--text-muted); font-size: 0.8rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
+        footer { background-color: var(--header-bg); color: #a0aec0; text-align: center; padding: 2rem 1rem; margin-top: 5rem; font-size: 0.9rem; }
+        @media (max-width: 650px) { header { padding: 1rem; } nav, .nav-right { gap: 1rem; } .nav-links { gap: 0.75rem; } .nav-links a { font-size: 0.85rem; } .logo { font-size: 1.1rem; } .hero { padding: 3rem 1rem; } .hero h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
     <header>
         <nav aria-label="Main Navigation">
-            <a href="/" class="logo">Auxiliary Laboratories.</a>
+            <a href="index.html" class="logo">Auxiliary Laboratories.</a>
             <div class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active-link">Home</a></li>
+                    <li><a href="index.html" class="active-link">Downloads</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="socials.html">Socials</a></li>
                 </ul>
                 <div class="theme-toggle-wrapper">
                     <button class="theme-toggle" id="theme-btn" aria-label="Toggle dark mode">
-                        <span class="icon">🌙</span>
-                        <span class="icon">☀️</span>
-                        <span class="thumb"></span>
+                        <span class="icon">🌙</span><span class="icon">☀️</span><span class="thumb"></span>
                     </button>
                 </div>
             </div>
@@ -210,41 +102,43 @@
 
     <section class="hero">
         <h1>Auxiliary Labs</h1>
-        <p>DEV BETA 1. ALL CHANGES ARE NOT PERMANENT.</p>
-        <a href="https://discord.gg/bQHM2zt8Mr" class="btn">Official Discord Portal</a>
+        <p>Resources for fun, made for fun.</p>
     </section>
 
     <main class="container">
-        <h2>h2 text test</h2>
+        <h2>Available downloads</h2>
         <div class="grid">
-            <div class="card">
-                <h3>Responsive Design</h3>
-                <p>Layout perfectly fits both PC, and mobile devices.</p>
-            </div>
-            <div class="card">
-                <h3>Clean CSS</h3>
-                <p>The code uses internal CSS styling, meaning that it is easier to upload designs instead of making a seperate file.</p>
-            </div>
-            <div class="card">
-                <h3>Fast Loading</h3>
-                <p>Very minimalistic. Actually, so minimalistic this loads in no time.</p>
-            </div>
+            <article class="card">
+                <span class="file-type">TXT / 01</span>
+                <h3>Welcome note</h3>
+                <p>A plain-text introduction to the Auxiliary Labs project.</p>
+                <a class="download-link" href="downloads/welcome.txt" download>Download file</a>
+            </article>
+            <article class="card">
+                <span class="file-type">MD / 02</span>
+                <h3>Quickstart</h3>
+                <p>Project notes and the first steps for getting involved.</p>
+                <a class="download-link" href="downloads/quickstart.md" download>Download file</a>
+            </article>
+            <article class="card">
+                <span class="file-type">ZIP / 03</span>
+                <h3>Resources Zip</h3>
+                <p>A collection of my creations.</p>
+                <a class="download-link" href="downloads/resources.zip" download>Download ZIP</a>
+            </article>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 AuxLabs.2bd.net. BluGlu is the sole owner of this site. Managed by DNSExit.</p>
-        <p>To ensure the safety of everyones privacy on this site, we will implement security measures soon, such as cloudflare to prevent bots and unauthorized access.</p>
+        <p>&copy; 2026 AuxLabs, formally known as WCA, RAF/2RS, Waffle-Waffen, AuxOS. BluGlu is the sole owner of this site.</p>
     </footer>
 
     <script>
         const themeBtn = document.getElementById('theme-btn');
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
-
         themeBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
         });
